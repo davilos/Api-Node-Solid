@@ -1,8 +1,6 @@
-import { type UsersRepository } from '@/repositories/users-repository'
-import { InvalidCredentialsError } from './errors/invalid-credentials-error'
-import { compare } from 'bcryptjs'
-import { type User } from '@prisma/client'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { type UsersRepository } from "@/repositories/users-repository"
+import { type User } from "@prisma/client"
+import { ResourceNotFoundError } from "./errors/resource-not-found-error"
 
 interface GetUserProfileServiceRequest {
   userId: string
@@ -13,18 +11,18 @@ interface GetUserProfileServiceResponse {
 }
 
 export class GetUserProfileService {
-  constructor (private readonly usersRepository: UsersRepository) {}
+	constructor (private readonly usersRepository: UsersRepository) {}
 
-  async execute ({ userId }: GetUserProfileServiceRequest):
+	async execute ({ userId }: GetUserProfileServiceRequest):
   Promise<GetUserProfileServiceResponse> {
-    const user = await this.usersRepository.findById(userId)
+		const user = await this.usersRepository.findById(userId)
 
-    if (user === null) {
-      throw new ResourceNotFoundError()
-    }
+		if (user === null) {
+			throw new ResourceNotFoundError()
+		}
 
-    return {
-      user
-    }
-  }
+		return {
+			user
+		}
+	}
 }
