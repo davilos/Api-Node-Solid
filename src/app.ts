@@ -10,7 +10,8 @@ void app.register(appRoutes)
 app.setErrorHandler((error, _, response) => {
 	if (error instanceof ZodError) {
 		return response.status(400).send({
-			message: "Validation error.", issues: error.format()
+			message: "Validation error.",
+			issues: error.format(),
 		})
 	}
 

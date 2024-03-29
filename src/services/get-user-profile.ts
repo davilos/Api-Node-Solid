@@ -11,10 +11,11 @@ interface GetUserProfileServiceResponse {
 }
 
 export class GetUserProfileService {
-	constructor (private readonly usersRepository: UsersRepository) {}
+	constructor(private readonly usersRepository: UsersRepository) {}
 
-	async execute ({ userId }: GetUserProfileServiceRequest):
-  Promise<GetUserProfileServiceResponse> {
+	async execute({
+		userId,
+	}: GetUserProfileServiceRequest): Promise<GetUserProfileServiceResponse> {
 		const user = await this.usersRepository.findById(userId)
 
 		if (user === null) {
@@ -22,7 +23,7 @@ export class GetUserProfileService {
 		}
 
 		return {
-			user
+			user,
 		}
 	}
 }

@@ -14,12 +14,12 @@ interface RegisterServiceResponse {
 }
 
 export class RegisterService {
-	constructor (private readonly usersRepository: UsersRepository) {}
+	constructor(private readonly usersRepository: UsersRepository) {}
 
-	async execute ({
+	async execute({
 		name,
 		email,
-		password
+		password,
 	}: RegisterServiceRequest): Promise<RegisterServiceResponse> {
 		const passwordHash = await hash(password, 6)
 
@@ -32,11 +32,11 @@ export class RegisterService {
 		const user = await this.usersRepository.create({
 			name,
 			email,
-			password_hash: passwordHash
+			password_hash: passwordHash,
 		})
 
 		return {
-			user
+			user,
 		}
 	}
 }

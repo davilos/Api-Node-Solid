@@ -11,17 +11,19 @@ interface CheckInServiceResponse {
 }
 
 export class CheckInService {
-	constructor (private readonly checkInRepository: CheckInsRepository) {}
+	constructor(private readonly checkInRepository: CheckInsRepository) {}
 
-	async execute ({ userId, gymId }: CheckInServiceRequest):
-  Promise<CheckInServiceResponse> {
+	async execute({
+		userId,
+		gymId,
+	}: CheckInServiceRequest): Promise<CheckInServiceResponse> {
 		const checkIn = await this.checkInRepository.create({
 			user_id: userId,
-			gym_id: gymId
+			gym_id: gymId,
 		})
 
 		return {
-			checkIn
+			checkIn,
 		}
 	}
 }

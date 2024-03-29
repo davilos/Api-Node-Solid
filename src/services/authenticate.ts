@@ -13,10 +13,12 @@ interface AuthenticateServiceResponse {
 }
 
 export class AuthenticateService {
-	constructor (private readonly usersRepository: UsersRepository) {}
+	constructor(private readonly usersRepository: UsersRepository) {}
 
-	async execute ({ email, password }: AuthenticateServiceRequest):
-  Promise<AuthenticateServiceResponse> {
+	async execute({
+		email,
+		password,
+	}: AuthenticateServiceRequest): Promise<AuthenticateServiceResponse> {
 		const user = await this.usersRepository.findByEmail(email)
 
 		if (user === null) {
@@ -30,7 +32,7 @@ export class AuthenticateService {
 		}
 
 		return {
-			user
+			user,
 		}
 	}
 }
