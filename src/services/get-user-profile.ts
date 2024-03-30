@@ -11,19 +11,19 @@ interface GetUserProfileServiceResponse {
 }
 
 export class GetUserProfileService {
-	constructor(private readonly usersRepository: UsersRepository) {}
+  constructor(private readonly usersRepository: UsersRepository) {}
 
-	async execute({
-		userId,
-	}: GetUserProfileServiceRequest): Promise<GetUserProfileServiceResponse> {
-		const user = await this.usersRepository.findById(userId)
+  async execute({
+    userId,
+  }: GetUserProfileServiceRequest): Promise<GetUserProfileServiceResponse> {
+    const user = await this.usersRepository.findById(userId)
 
-		if (user === null) {
-			throw new ResourceNotFoundError()
-		}
+    if (user === null) {
+      throw new ResourceNotFoundError()
+    }
 
-		return {
-			user,
-		}
-	}
+    return {
+      user,
+    }
+  }
 }
