@@ -5,6 +5,19 @@ import { randomUUID } from "node:crypto"
 export class InMemoryCheckInsRepository implements CheckInsRepository {
   public items: CheckIN[] = []
 
+  async findByUserIdOnDdate(
+    userId: string,
+    date: Date,
+  ): Promise<CheckIN | null> {
+    const checkInOnSameDate = this.items.find(
+      (checkIn) => checkIn.user_id === userId,
+    )
+
+    if (!checkInOnSameDate) return null
+
+    return checkInOnSameDate
+  }
+
   async create(data: Prisma.CheckINUncheckedCreateInput): Promise<CheckIN> {
     const checkIn = {
       id: randomUUID(),
