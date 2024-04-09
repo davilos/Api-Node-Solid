@@ -1,9 +1,13 @@
 import { type FastifyInstance } from "fastify"
 import { register } from "./controllers/RegisterController"
 import { authenticate } from "./controllers/AuthenticateController"
+import { profile } from "./controllers/ProfileController"
 
 export async function appRoutes(app: FastifyInstance): Promise<void> {
   app.post("/users", register)
 
   app.post("/sessions", authenticate)
+
+  // Authenticated
+  app.get("/me", profile)
 }
