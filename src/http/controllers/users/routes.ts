@@ -4,7 +4,7 @@ import { authenticate } from "./AuthenticateController"
 import { profile } from "./ProfileController"
 import { verifyJWT } from "@/http/middlewares/verify-jwt"
 
-export async function appRoutes(app: FastifyInstance): Promise<void> {
+export async function usersRoutes(app: FastifyInstance): Promise<void> {
   app.post("/users", register)
 
   app.post("/sessions", authenticate)
