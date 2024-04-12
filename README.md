@@ -1,3 +1,39 @@
+# [![Logo](https://skillicons.dev/icons?i=nodejs)](https://skillicons.dev) API REST Transactions
+
+Esta API funciona como transações bancárias. Podendo criar uma transação, buscar todas as transações ou apenas uma, e um resumo contendo
+a quantidade de dinheiro a qual foram usados nas transações. Utilizei cookies (com duração de 7 dias) para que o app pudesse indentificar o usuário.
+
+## Como iniciar o projeto
+```
+# Dentro da pasta do projeto
+npm install
+
+# Executando as migrações para a criação de tabelas no DB
+npx prisma migrate dev
+
+# Iniciando o projeto
+npm run start:dev
+```
+
+## Como rodar os testes
+```
+# Para rodar os testes E2E
+npm run test:e2e
+
+# Para rodar os testes unitários
+npm run test
+```
+
+## Tecnologias usadas para a criação do projeto
+- Node.js
+- TypeScript
+- Fastify
+- Prisma
+- Zod
+- Vitest
+- Supertest
+- Tsup
+
 # GymPass Style App
 
 ### RF - Requisitos Funcionais
