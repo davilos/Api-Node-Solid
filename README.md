@@ -1,6 +1,6 @@
 # [![Logo](https://skillicons.dev/icons?i=nodejs)](https://skillicons.dev) GymPass Style API
 
-Esta API funciona como uma aplicação que realiza check-ins em academias. O usuário pode fazer check-in em uma academia, buscar academias próximas, e um resumo contendo a contagem de todos os check-ins dele. Também existe a entidade academia que pode validar check-ins dos usuários. A autenticação de usuários funciona com o JWT, contendo 2 tokens, o primeiro com duração de 10 minutos, e o segundo com duração de 7 dias. Caso o de 7 dias acabe, o usuário será automaticamente deslogado da conta. 
+Esta API funciona como uma aplicação que realiza check-ins em academias. O usuário pode fazer check-in em uma academia, buscar academias próximas, visualizar o seu perfil, e acessar um resumo contendo a contagem de todos os check-ins dele em academias. Também existe a entidade academia que pode validar os check-ins dos usuários. A autenticação de usuários funciona com o JWT. A aplicação contém 2 tokens, o primeiro com duração de 10 minutos, e o segundo com duração de 7 dias. Caso o de 7 dias acabe, o usuário será automaticamente deslogado da conta. 
 
 ## Como iniciar o projeto
 ```
