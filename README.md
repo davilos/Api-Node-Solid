@@ -7,6 +7,9 @@ Esta API funciona como uma aplicação que realiza check-ins em academias. O usu
 # Dentro da pasta do projeto
 npm install
 
+# Iniciando o banco de dados
+docker compose up -d
+
 # Executando as migrações para a criação de tabelas no DB
 npx prisma migrate dev
 
